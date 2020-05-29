@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: squid
+  labels:
+    app: squid
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: squid
+  template:
+    metadata:
+      labels:
+        app: squid
+    spec:
+      containers:
+      - name: squid
+        image: munnaeeebd/sqid:5
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 3128
